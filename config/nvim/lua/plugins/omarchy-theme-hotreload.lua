@@ -5,10 +5,13 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
+			-- Cache the transparency file path
+			local transparency_file = vim.fn.stdpath("config") .. "/plugin/after/transparency.lua"
+			local has_transparency = vim.fn.filereadable(transparency_file) == 1
+
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "LazyReload",
 				callback = function()
-					-- Clear the theme module cache
 					package.loaded["plugins.theme"] = nil
 
 					local ok, theme_spec = pcall(require, "plugins.theme")
@@ -16,18 +19,26 @@ return {
 						for _, spec in ipairs(theme_spec) do
 							if spec[1] == "LazyVim/LazyVim" and spec.opts and spec.opts.colorscheme then
 								local colorscheme = spec.opts.colorscheme
-								-- Defer to next tick to escape the autocmd context
+
 								vim.defer_fn(function()
-									require("lazy.core.loader").colorscheme(colorscheme)
+									local colorscheme_available =
+										vim.tbl_contains(vim.fn.getcompletion("", "color"), colorscheme)
 
-									pcall(vim.cmd.colorscheme, colorscheme)
+									if not colorscheme_available then
+										require("lazy.core.loader").colorscheme(colorscheme)
+									end
 
-									local transparency_file = vim.fn.stdpath("config")
-										.. "/plugin/after/transparency.lua"
-									if vim.fn.filereadable(transparency_file) == 1 then
-										vim.cmd.source(transparency_file)
+									local success = pcall(vim.cmd.colorscheme, colorscheme)
+
+									if success then
+										if has_transparency then
+											vim.defer_fn(function()
+												vim.cmd.source(transparency_file)
+											end, 1)
+										end
 									end
 								end, 0)
+
 								break
 							end
 						end
