@@ -299,11 +299,13 @@ show_install_ai_menu() {
 }
 
 show_install_gaming_menu() {
-  case $(menu "Install" "  Steam\n  RetroArch [AUR]\n󰍳  Minecraft\n󰮂 Lutris") in
+  case $(menu "Install" "Omarchy Gaming Helper\n  Steam\n  RetroArch [AUR]\n󰍳  Minecraft\n Heroic Launcher\n󰮂 Lutris") in
+  *Omarchy*) present_terminal omarchy-setup-gaming ;;
   *Steam*) present_terminal omarchy-install-steam ;;
   *RetroArch*) aur_install_and_launch "RetroArch" "retroarch retroarch-assets libretro libretro-fbneo" "com.libretro.RetroArch.desktop" ;;
   *Minecraft*) aur_install_and_launch "Minecraft [AUR]" "minecraft-launcher" "minecraft-launcher" ;;
-  *Lutris*) aur_install_and_launch "Lutris" "lutris-git" "lutris-git" ;;
+  *Heroic*) aur_install_and_launch "Heroic Launcher" "heroic-games-launcher-bin" "heroic" ;;
+  *Lutris*) aur_install_and_launch "Lutris" "lutris" "lutris" ;;
   *) show_install_menu ;;
   esac
 }
@@ -431,7 +433,8 @@ show_update_config_menu() {
 }
 
 show_update_hardware_menu() {
-  case $(menu "Restart" "󱚾  Wi-Fi\n󰂯  Bluetooth") in
+  case $(menu "Restart" "  Audio\n󱚾  Wi-Fi\n󰂯  Bluetooth") in
+  *Audio*) present_terminal omarchy-restart-pipewire ;;
   *Wi-Fi*) present_terminal omarchy-restart-wifi ;;
   *Bluetooth*) present_terminal omarchy-restart-bluetooth ;;
   *) show_update_menu ;;
