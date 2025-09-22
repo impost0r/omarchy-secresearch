@@ -303,7 +303,7 @@ show_install_gaming_menu() {
   *Steam*) present_terminal omarchy-install-steam ;;
   *RetroArch*) aur_install_and_launch "RetroArch" "retroarch retroarch-assets libretro libretro-fbneo" "com.libretro.RetroArch.desktop" ;;
   *Minecraft*) aur_install_and_launch "Minecraft [AUR]" "minecraft-launcher" "minecraft-launcher" ;;
-  *Lutris*) aur_install_and_launch "Lutris" "lutris-git" "lutris-git" ;;
+  *Lutris*) aur_install_and_launch "Lutris" "lutris" "lutris" ;;
   *) show_install_menu ;;
   esac
 }
