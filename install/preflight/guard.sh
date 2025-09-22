@@ -22,5 +22,8 @@ done
 pacman -Qe gnome-shell &>/dev/null && abort "Fresh + Vanilla Arch"
 pacman -Qe plasma-desktop &>/dev/null && abort "Fresh + Vanilla Arch"
 
+# Must have limine installed
+command -v limine &>/dev/null || abort "Limine bootloader missing" 
+
 # Cleared all guards
 echo "Guards: OK"
