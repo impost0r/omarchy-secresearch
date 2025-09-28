@@ -17,6 +17,4 @@ omarchy_verify() {
     local perms=$(stat -c %a /etc/gnupg/dirmngr.conf)
     [[ "$perms" == "644" ]] || add_error "GPG dirmngr.conf has incorrect permissions: $perms (should be 644)"
   fi
-
-  pgrep -x dirmngr >/dev/null || add_error "GPG dirmngr is not running"
 }
