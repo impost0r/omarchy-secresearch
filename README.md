@@ -12,3 +12,5 @@ Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT)
 ## TODO
 
 Remove DHH's bloat with more security-friendly and privacy-friendlyg alternatives. For example, switching the default email shortcut (SUPER + E) to open ProtonMail. Install Ghidra and Binary Ninja (demo) by default. Have Zen be the default browser while keeping the omarchy webapp runner. Same general gist, but also more tools for vulnerability researchers installed by default. You'll want to resize your boot partition during archinstall to be able to support all four kernels or however many kernels you're working with during research, and IDA Free will come preinstalled. Feel free to add thoughts in the issues page. 
+
+Reintroduce bare mode.
