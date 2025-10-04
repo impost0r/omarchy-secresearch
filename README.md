@@ -1,7 +1,6 @@
 # Omarchy - Security Research
 
-Turn a fresh Arch installation into a fully-configured, beautiful, and modern security research system based on Hyprland by running a single command. ~~That's the one-line pitch for Omarchy (like it was for Omakub). No need to write bespoke configs for every essential tool just to get started or to be up on all the latest command-line tools.~~ Omarchy-Secresearch is an opinionated take on what Linux can be at its best. **For vulnerability researchers, by vulnerability researchers.
-**
+Turn a fresh Arch installation into a fully-configured, beautiful, and modern security research system based on Hyprland by running a single command. ~~That's the one-line pitch for Omarchy (like it was for Omakub). No need to write bespoke configs for every essential tool just to get started or to be up on all the latest command-line tools.~~ Omarchy-Secresearch is an opinionated take on what Linux can be at its best. **For vulnerability researchers, by vulnerability researchers.**
 Developed by [ret2plt](https://ret2p.lt)
 
 ~~Read more at [omarchy.org](https://omarchy.org).~~
